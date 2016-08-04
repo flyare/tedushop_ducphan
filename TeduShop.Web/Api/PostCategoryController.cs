@@ -22,7 +22,7 @@ namespace TeduShop.Web.Api
 
         public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
         {
-            return CreateHttpResponse(request, () => 
+            return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
 
@@ -86,22 +86,14 @@ namespace TeduShop.Web.Api
             });
         }
 
+        [Route("getall")]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage response = null;
+                var listCategory = _postCategoryService.GetAll();
 
-                if (ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategoryService.GetAll();                    
-
-                    response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-                }
+                var response = request.CreateResponse(HttpStatusCode.OK, listCategory);
 
                 return response;
             });
