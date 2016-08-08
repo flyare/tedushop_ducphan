@@ -251,3 +251,14 @@ paket-files/
 .idea/
 *.sln.iml
 TeduShop.Data/Infrastructure/ClassDiagram1.cd
+TeduShop.Web/Scripts/plugins/angular/.bower.json
+TeduShop.Web/Scripts/plugins/angular/LICENSE.md
+TeduShop.Web/Scripts/plugins/angular/README.md
+TeduShop.Web/Scripts/plugins/angular/angular-csp.css
+TeduShop.Web/Scripts/plugins/angular/angular.js
+TeduShop.Web/Scripts/plugins/angular/angular.min.js
+TeduShop.Web/Scripts/plugins/angular/angular.min.js.gzip
+TeduShop.Web/Scripts/plugins/angular/angular.min.js.map
+TeduShop.Web/Scripts/plugins/angular/bower.json
+TeduShop.Web/Scripts/plugins/angular/index.js
+TeduShop.Web/Scripts/plugins/angular/package.json
