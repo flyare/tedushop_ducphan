@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using TeduShop.Model.Models;
 
@@ -57,7 +52,7 @@ namespace TeduShop.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IdentityUserRole>().HasKey(i => i.UserId);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new {i.UserId, i.RoleId});
             modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
