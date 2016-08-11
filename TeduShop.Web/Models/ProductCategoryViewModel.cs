@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TeduShop.Web.Models
 {
-    public class ProductCategorViewModel
+    public class ProductCategoryViewModel
     {
         public int ID { set; get; }
 

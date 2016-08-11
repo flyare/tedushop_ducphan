@@ -22,7 +22,7 @@ namespace TeduShop.Service
         void Save();
     }
 
-    public class ProductCategoryService
+    public class ProductCategoryService: IProductCategoryService
     {
         private readonly IProductCategoryRepository _productCategoryRepository;
         private readonly IUnitOfWork _unitOfWork;

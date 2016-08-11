@@ -7,13 +7,13 @@ namespace TeduShop.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class changekey : IMigrationMetadata
+    public sealed partial class AddTableProductTag : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changekey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTableProductTag));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608081456311_changekey"; }
+            get { return "201608111646335_AddTableProductTag"; }
         }
         
         string IMigrationMetadata.Source

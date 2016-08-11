@@ -49,6 +49,14 @@ namespace TeduShop.Data.Migrations
 
             var adminUser = manager.FindByEmail("itphanhoangduc@gmail.com");
             manager.AddToRoles(adminUser.Id, "Admin", "User");
+
+            var postCategory = new PostCategory
+            {
+                Name = "test",
+                Alias = "Test"
+            };
+            context.PostCategories.Add(postCategory);
+            context.SaveChanges();
         }
     }
 }

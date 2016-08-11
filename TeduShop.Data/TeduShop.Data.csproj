@@ -63,21 +63,13 @@
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
-    <Compile Include="Migrations\201607281407488_initialDB.cs" />
-    <Compile Include="Migrations\201607281407488_initialDB.Designer.cs">
-      <DependentUpon>201607281407488_initialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201608111519470_InitialDB.cs" />
+    <Compile Include="Migrations\201608111519470_InitialDB.Designer.cs">
+      <DependentUpon>201608111519470_InitialDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608030825399_AddErrorTable.cs" />
-    <Compile Include="Migrations\201608030825399_AddErrorTable.Designer.cs">
-      <DependentUpon>201608030825399_AddErrorTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608071717588_add-aspnet-identity-entityframework.cs" />
-    <Compile Include="Migrations\201608071717588_add-aspnet-identity-entityframework.Designer.cs">
-      <DependentUpon>201608071717588_add-aspnet-identity-entityframework.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608081456311_changekey.cs" />
-    <Compile Include="Migrations\201608081456311_changekey.Designer.cs">
-      <DependentUpon>201608081456311_changekey.cs</DependentUpon>
+    <Compile Include="Migrations\201608111646335_AddTableProductTag.cs" />
+    <Compile Include="Migrations\201608111646335_AddTableProductTag.Designer.cs">
+      <DependentUpon>201608111646335_AddTableProductTag.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,17 +109,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607281407488_initialDB.resx">
-      <DependentUpon>201607281407488_initialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608111519470_InitialDB.resx">
+      <DependentUpon>201608111519470_InitialDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608030825399_AddErrorTable.resx">
-      <DependentUpon>201608030825399_AddErrorTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608071717588_add-aspnet-identity-entityframework.resx">
-      <DependentUpon>201608071717588_add-aspnet-identity-entityframework.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608081456311_changekey.resx">
-      <DependentUpon>201608081456311_changekey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608111646335_AddTableProductTag.resx">
+      <DependentUpon>201608111646335_AddTableProductTag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
