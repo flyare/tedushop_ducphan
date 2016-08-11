@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Microsoft.AspNet.Identity;
@@ -16,6 +17,7 @@ namespace TeduShop.Data.Migrations
 
         protected override void Seed(TeduShopDbContext context)
         {
+            CreateProductCategorySample(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -29,7 +31,7 @@ namespace TeduShop.Data.Migrations
             //    );
             //
 
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
+            /*var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
             var roleManage = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
             var user = new ApplicationUser
             {
@@ -56,6 +58,22 @@ namespace TeduShop.Data.Migrations
                 Alias = "Test"
             };
             context.PostCategories.Add(postCategory);
+            context.SaveChanges();*/
+        }
+
+        private void CreateProductCategorySample(TeduShopDbContext context)
+        {
+            if (context.ProductCategories.Count() != 0) return;
+
+            var list = new List<ProductCategory>()
+            {
+                new ProductCategory() { Name = "Dien Lanh", Alias = "dien-lanh", Status = true},
+                new ProductCategory() { Name = "Vien Thong", Alias = "vien-thong", Status = true},
+                new ProductCategory() { Name = "Do Gia Dung", Alias = "Do-Gia-Dung", Status = true},
+                new ProductCategory() { Name = "My Pham", Alias = "My-Pham", Status = true}
+            };
+
+            context.ProductCategories.AddRange(list);
             context.SaveChanges();
         }
     }
