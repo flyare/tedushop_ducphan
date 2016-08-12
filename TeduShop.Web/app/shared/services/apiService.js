@@ -1,6 +1,6 @@
 ﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
 (function (app) {
-    app.service("apiService", apiService);
+    app.factory("apiService", apiService);
 
     apiService.$inject = ["$http"];
 
@@ -10,7 +10,7 @@
         }
 
         function get(url, params, success, failure) {
-            $http.get(url, param).then(function (result) {
+            $http.get(url, params).then(function (result) {
                 success(result);
             }, function (error) {
                 failure(error);
@@ -18,4 +18,4 @@
         }
     }
 
-})("tedushop.common");
+})(angular.module("tedushop.common"));
