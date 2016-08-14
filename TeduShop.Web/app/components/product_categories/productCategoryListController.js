@@ -1,22 +1,36 @@
-﻿(function (app) {
+﻿(function(app) {
     app.controller("productCategorytListController", productCategorytListController);
 
-    productCategorytListController.$inject = ['$scope', 'apiService']
+    productCategorytListController.$inject = ["$scope", "apiService"];
 
     function productCategorytListController($scope, apiService) {
         $scope.productCategories = [];
 
-        $scope.getProductCategories = getProductCategories;
+        $scope.page = 0;
+        $scope.pageCount = 0;
 
-        function getProductCategories() {
-            apiService.get('/api/productcategory/getall', null, function(result) {
-                $scope.productCategories = result.data;
+        $scope.getProductCagories = getProductCagories;
+
+        function getProductCagories(page) {
+            page = page || 0;
+            var config = {
+                params: {
+                    page: page,
+                    pageSize: 2
+                }
+            };
+            apiService.get("/api/productcategory/getall", config, function(result) {
+                $scope.productCategories = result.data.Items;
+                $scope.page = result.data.Page;
+                $scope.pagesCount = result.data.Count;
+                $scope.totalPage = result.data.TotalCount;
+
             }, function() {
-                console.log('Load productCategories failed');
+                console.log("Load productCategories failed");
             });
         }
 
-        $scope.getProductCategories();
+        $scope.getProductCagories();
     }
 
 })(angular.module("tedushop.product_categories"));
