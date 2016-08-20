@@ -8,13 +8,23 @@
 
         $scope.page = 0;
         $scope.pageCount = 0;
+        $scope.totalCount = 0;
 
+        $scope.keyword = "";
+
+        $scope.search = search;
         $scope.getProductCagories = getProductCagories;
+
+
+        function search() {
+            $scope.getProductCagories();
+        }
 
         function getProductCagories(page) {
             page = page || 0;
             var config = {
                 params: {
+                    keyword: $scope.keyword,
                     page: page,
                     pageSize: 2
                 }
@@ -23,7 +33,7 @@
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.Count;
-                $scope.totalPage = result.data.TotalCount;
+                $scope.totalCount = result.data.TotalCount;
 
             }, function() {
                 console.log("Load productCategories failed");
