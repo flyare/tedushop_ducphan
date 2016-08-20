@@ -70,7 +70,13 @@ namespace TeduShop.Data.Migrations
                 new ProductCategory() { Name = "Dien Lanh", Alias = "dien-lanh", Status = true},
                 new ProductCategory() { Name = "Vien Thong", Alias = "vien-thong", Status = true},
                 new ProductCategory() { Name = "Do Gia Dung", Alias = "Do-Gia-Dung", Status = true},
-                new ProductCategory() { Name = "My Pham", Alias = "My-Pham", Status = true}
+                new ProductCategory() { Name = "My Pham", Alias = "My-Pham", Status = true},
+                new ProductCategory() { Name = "Smart Phone", Alias = "Smart-Phone", Status = true},
+                new ProductCategory() { Name = "Oto", Alias = "Oto", Status = true},
+                new ProductCategory() { Name = "May Cong Nghiep", Alias = "May-Cong-Nghiep", Status = true},
+                new ProductCategory() { Name = "May Nong Nghiep", Alias = "May-Nong-Nghiep", Status = true},
+                new ProductCategory() { Name = "Do choi tre em", Alias = "Do-choi-tre-em", Status = true},
+                new ProductCategory() { Name = "May mac", Alias = "May-mac", Status = true}
             };
 
             context.ProductCategories.AddRange(list);
