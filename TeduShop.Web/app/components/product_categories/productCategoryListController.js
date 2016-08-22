@@ -40,7 +40,7 @@
 
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
-                $scope.pagesCount = result.data.Count;
+                $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
 
             }, function() {
