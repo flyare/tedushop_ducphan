@@ -8,6 +8,7 @@ using AutoMapper;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
+using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Api
@@ -40,6 +41,26 @@ namespace TeduShop.Web.Api
                     TotalPages = (int) Math.Ceiling((decimal) total/pageSize)
                 };
                 return request.CreateResponse(HttpStatusCode.OK, paginationSet);
+            });
+        }
+
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVM)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                if (!ModelState.IsValid)
+                {
+                    return request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                HttpResponseMessage response = null;
+                var newProductCategory = new ProductCategory();
+                newProductCategory.UpdateProductCategory(productCategoryVM);
+
+                _productCategoryService.Add(newProductCategory);
+                var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(newProductCategory);
+                response = request.CreateResponse(HttpStatusCode.Created, responseData);
+
+                return response;
             });
         }
     }
