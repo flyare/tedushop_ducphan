@@ -15,7 +15,6 @@
         $scope.search = search;
         $scope.getProductCagories = getProductCagories;
 
-
         function search() {
             $scope.getProductCagories();
         }
