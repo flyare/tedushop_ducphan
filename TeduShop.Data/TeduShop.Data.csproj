@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201608111646335_AddTableProductTag.Designer.cs">
       <DependentUpon>201608111646335_AddTableProductTag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608240921342_change-field-product-category.cs" />
+    <Compile Include="Migrations\201608240921342_change-field-product-category.Designer.cs">
+      <DependentUpon>201608240921342_change-field-product-category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608111646335_AddTableProductTag.resx">
       <DependentUpon>201608111646335_AddTableProductTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608240921342_change-field-product-category.resx">
+      <DependentUpon>201608240921342_change-field-product-category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

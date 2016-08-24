@@ -45,9 +45,22 @@ namespace TeduShop.Web.Api
             });
         }
 
+        [Route("getallparents")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productCategoryService.GetAll();
+                var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+                
+                return request.CreateResponse(HttpStatusCode.OK, responseData);
+            });
+        }
+
         [Route("create")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVM)
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -57,9 +70,10 @@ namespace TeduShop.Web.Api
                 }
                 HttpResponseMessage response = null;
                 var newProductCategory = new ProductCategory();
-                newProductCategory.UpdateProductCategory(productCategoryVM);
+                newProductCategory.UpdateProductCategory(productCategoryVm);
 
                 _productCategoryService.Add(newProductCategory);
+                _productCategoryService.Save();
                 var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(newProductCategory);
                 response = request.CreateResponse(HttpStatusCode.Created, responseData);
 

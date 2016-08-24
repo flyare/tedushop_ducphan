@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TeduShop.Model.Models;
+﻿using TeduShop.Model.Models;
 using TeduShop.Web.Models;
 
 namespace TeduShop.Web.Infrastructure.Extensions
@@ -27,9 +23,8 @@ namespace TeduShop.Web.Infrastructure.Extensions
             postCategory.MetaKeyword = postCategoryVm.MetaKeyword;
             postCategory.MetaDescription = postCategoryVm.MetaDescription;
             postCategory.Status = postCategoryVm.Status;
-
         }
-        
+
         public static void UpdatePost(this Post post, PostViewModel postVm)
         {
             post.ID = postVm.ID;
@@ -51,16 +46,17 @@ namespace TeduShop.Web.Infrastructure.Extensions
             post.Status = postVm.Status;
         }
 
-        public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryVm)
+        public static void UpdateProductCategory(this ProductCategory productCategory,
+            ProductCategoryViewModel productCategoryVm)
         {
             productCategory.ID = productCategoryVm.ID;
             productCategory.Name = productCategoryVm.Name;
             productCategory.Description = productCategoryVm.Description;
             productCategory.Alias = productCategoryVm.Alias;
             productCategory.ParentID = productCategoryVm.ParentID;
-            productCategory.DisplayOrder = (int) productCategoryVm.DisplayOrder;
+            productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
             productCategory.Image = productCategoryVm.Image;
-            productCategory.HomeFlag = (bool) productCategoryVm.HomeFlag;
+            productCategory.HomeFlag = productCategoryVm.HomeFlag;
 
             productCategory.CreatedDate = productCategoryVm.CreatedDate;
             productCategory.CreatedBy = productCategoryVm.CreatedBy;
@@ -69,7 +65,6 @@ namespace TeduShop.Web.Infrastructure.Extensions
             productCategory.MetaKeyword = productCategoryVm.MetaKeyword;
             productCategory.MetaDescription = productCategoryVm.MetaDescription;
             productCategory.Status = productCategoryVm.Status;
-
         }
     }
 }

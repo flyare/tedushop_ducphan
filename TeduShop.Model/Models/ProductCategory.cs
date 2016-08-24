@@ -20,9 +20,9 @@ namespace TeduShop.Model.Models
 
         public string Description { get; set; }
         public int? ParentID { get; set; }
-        public int DisplayOrder { get; set; }
+        public int? DisplayOrder { get; set; }
         public string Image { get; set; }
-        public bool HomeFlag { get; set; }
+        public bool? HomeFlag { get; set; }
 
         [ForeignKey("")]
         public virtual IEnumerable<Product> Products { get; set; }
