@@ -266,10 +266,12 @@
     <Content Include="app\shared\directives\pagerGoogleDirective.js" />
     <Content Include="app\shared\services\apiService.js" />
     <Content Include="app\shared\filters\statusFilter.js" />
+    <Content Include="app\shared\services\changeNumberToWord.js" />
     <Content Include="app\shared\services\commonService.js" />
     <Content Include="app\shared\services\notificationService.js" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
     <Content Include="Assets\admin\css\AdminLTE.min.css" />
+    <Content Include="Assets\admin\css\custom.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.min.css" />
     <Content Include="Assets\admin\css\skins\skin-black.css" />
