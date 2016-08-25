@@ -1,9 +1,9 @@
 ﻿(function(app) {
     app.controller("productCategorytAddController", productCategorytAddController);
 
-    productCategorytAddController.$inject = ["$scope", "apiService", "notificationService", "$state"];
+    productCategorytAddController.$inject = ["$scope", "apiService", "notificationService", "$state", "commonService"];
 
-    function productCategorytAddController($scope, apiService, notificationService, $state) {
+    function productCategorytAddController($scope, apiService, notificationService, $state, commonService) {
         $scope.productCategory = {
             CreatedDate: new Date(),
             Status: true,
@@ -11,12 +11,16 @@
             Alias: "Danh-muc-1"
         };
 
-        $scope.parentCategories = [];
-
         $scope.addProductCategory = addProductCategory;
 
+        $scope.getSeoTitle = getSeoTitle;
+
+        function getSeoTitle() {
+            $scope.productCategory.Alias = commonService.getSeoTitle($scope.productCategory.Name);
+        }
+
         function addProductCategory() {
-            apiService.post("/api/productcategory/create", $scope.productCategory, function(result) {
+            apiService.post("/api/productcategory/create/", $scope.productCategory, function(result) {
                 notificationService.displaySuccess(result.data.Name + " đã được thêm mới.");
                 $state.go("product_categories");
             }, function (error) {

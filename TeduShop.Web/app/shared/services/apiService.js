@@ -7,7 +7,16 @@
     function apiService($http, notificationService) {
         return {
             get: get,
-            post: post
+            post: post,
+            put: put
+        }
+
+        function put(url, params, success, failure) {
+            $http.put(url, params).then(function (result) {
+                success(result);
+            }, function (error) {
+                failure(error);
+            });
         }
 
         function get(url, params, success, failure) {
