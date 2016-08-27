@@ -126,6 +126,30 @@ namespace TeduShop.Web.Api
             });
         }
 
+        [Route("deletemulti")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedProductCategories)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                var lstId = checkedProductCategories.Split(',').ToList();
+
+                foreach (var id in lstId)
+                {
+                    _productCategoryService.Delete(Convert.ToInt32(id));
+                }
+
+                _productCategoryService.Save();
+
+                /*var oldProductCategory = _productCategoryService.Delete(id);
+                _productCategoryService.Save();*/
+                response = request.CreateResponse(HttpStatusCode.Created, lstId.Count);
+
+                return response;
+            });
+        }
+
         #region Initialize
 
         private readonly IProductCategoryService _productCategoryService;
