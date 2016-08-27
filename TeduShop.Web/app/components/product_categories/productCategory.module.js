@@ -16,6 +16,10 @@
             url: "/edit_product_category/:id",
             templateUrl: "/app/components/product_categories/productCategoryEditView.html",
             controller: "productCategorytEditController"
+        }).state("clone_product_category", {
+            url: "/add_product_category/:id",
+            templateUrl: "/app/components/product_categories/productCategoryAddView.html",
+            controller: "productCategorytAddController"
         });
     }
 })();

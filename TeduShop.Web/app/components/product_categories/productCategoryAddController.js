@@ -1,9 +1,9 @@
 ﻿(function(app) {
     app.controller("productCategorytAddController", productCategorytAddController);
 
-    productCategorytAddController.$inject = ["$scope", "apiService", "notificationService", "$state", "commonService"];
+    productCategorytAddController.$inject = ["$scope", "apiService", "notificationService", "$state", "commonService", "$stateParams"];
 
-    function productCategorytAddController($scope, apiService, notificationService, $state, commonService) {
+    function productCategorytAddController($scope, apiService, notificationService, $state, commonService, $stateParams) {
         $scope.productCategory = {
             CreatedDate: new Date(),
             Status: true,
@@ -37,6 +37,18 @@
             });
         }
 
+        function loadProductCategoryDetail() {
+            if ($stateParams.id) {
+                apiService.get("/api/productcategory/getbyid/" + $stateParams.id, null, function (result) {
+                    $scope.productCategory = result.data;
+                }, function (error) {
+                    console.log(error);
+                    notificationService.displayError(error);
+                });
+            }
+        }
+
+        loadProductCategoryDetail();
         loadParentCategory();
     }
 
