@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller("productCategorytListController", productCategorytListController);
 
-    productCategorytListController.$inject = ["$scope", "apiService", "notificationService", "$q"];
+    productCategorytListController.$inject = ["$scope", "apiService", "notificationService", "$ngBootbox"];
 
-    function productCategorytListController($scope, apiService, notificationService, $q) {
+    function productCategorytListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productCategories = [];
 
         $scope.page = 0;
@@ -13,7 +13,25 @@
         $scope.keyword = "";
 
         $scope.search = search;
+
         $scope.getProductCagories = getProductCagories;
+
+        $scope.deleteProductCategory = deleteProductCategory;
+
+        function deleteProductCategory(id) {
+            $ngBootbox.confirm("Bạn chắc chăn muốn xóa?").then(function () {
+                var config = {
+                    params : {
+                        id: id
+                    }
+                }
+                apiService.del("/api/productcategory/delete", config, function(result) {
+                    notificationService.displaySuccess("Xóa thành công.");
+                    search();
+                });
+            }, function () {
+            });
+        }
 
         function search() {
             $scope.getProductCagories();
@@ -46,13 +64,6 @@
         }
 
         $scope.getProductCagories();
-
-        $scope.$on("LOAD", function() {
-            console.log("Begin load");
-        });
-        $scope.$on("UNLOAD", function () {
-            console.log("unload");
-        });
     }
 
 })(angular.module("tedushop.product_categories"));
