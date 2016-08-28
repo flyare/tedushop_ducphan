@@ -1,60 +1,39 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using TeduShop.Model.Models;
 
 namespace TeduShop.Web.Models
 {
     public class ProductViewModel
     {
-        public int ID { set; get; }
+        public int ID { get; set; }
 
-        public string Name { set; get; }
+        public string Name { get; set; }
 
-        public string Alias { set; get; }
+        public string Alias { get; set; }
 
-        public int CategoryID { set; get; }
+        public int CategoryID { get; set; }
 
-        public string Image { set; get; }
+        public string Image { get; set; }
 
-        public string MoreImages { set; get; }
+        public string MoreImages { get; set; }
+        public decimal Price { get; set; }
+        public decimal? PromotionPrice { get; set; }
+        public int Warranty { get; set; }
+        public string Description { get; set; }
+        public string Content { get; set; }
+        public bool? HomeFlag { get; set; }
+        public bool? HotFlag { get; set; }
+        public int? ViewCount { get; set; }
 
-        public decimal Price { set; get; }
+        public virtual ProductCategory ProductCategory { get; set; }
 
-        public decimal? PromotionPrice { set; get; }
-
-        public int? Warranty { set; get; }
-
-        public string Description { set; get; }
-
-        public string Content { set; get; }
-
-        public bool? HomeFlag { set; get; }
-
-        public bool? HotFlag { set; get; }
-
-        public int? ViewCount { set; get; }
-
-        public DateTime? CreatedDate { set; get; }
-
-        public string CreatedBy { set; get; }
-
-        public DateTime? UpdatedDate { set; get; }
-
-        public string UpdatedBy { set; get; }
-
-        public string MetaKeyword { set; get; }
-
-        public string MetaDescription { set; get; }
-
-        public bool Status { set; get; }
-
-        public string Tags { set; get; }
-
-        public int Quantity { set; get; }
-
-        public decimal OriginalPrice { set; get; }
-        public virtual ProductCategoryViewModel ProductCategory { set; get; }
+        public DateTime? CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public string MetaKeyword { get; set; }
+        public string MetaDescription { get; set; }
+        public bool Status { get; set; }
     }
 }

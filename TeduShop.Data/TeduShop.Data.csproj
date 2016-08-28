@@ -75,6 +75,14 @@
     <Compile Include="Migrations\201608240921342_change-field-product-category.Designer.cs">
       <DependentUpon>201608240921342_change-field-product-category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608280239501_change-description-product-columne.cs" />
+    <Compile Include="Migrations\201608280239501_change-description-product-columne.Designer.cs">
+      <DependentUpon>201608280239501_change-description-product-columne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608280349174_change-virtual-productcategory.cs" />
+    <Compile Include="Migrations\201608280349174_change-virtual-productcategory.Designer.cs">
+      <DependentUpon>201608280349174_change-virtual-productcategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -121,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608240921342_change-field-product-category.resx">
       <DependentUpon>201608240921342_change-field-product-category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608280239501_change-description-product-columne.resx">
+      <DependentUpon>201608280239501_change-description-product-columne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608280349174_change-virtual-productcategory.resx">
+      <DependentUpon>201608280349174_change-virtual-productcategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

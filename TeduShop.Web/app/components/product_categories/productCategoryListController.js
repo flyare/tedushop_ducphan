@@ -32,7 +32,6 @@
                 $.each($scope.selected, function (i, item) {
                     listId.push(item.ID);
                 });
-                console.log(listId.toString());
                 var config = {
                     params: {
                         checkedProductCategories: listId.toString()

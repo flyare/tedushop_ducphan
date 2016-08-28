@@ -81,11 +81,10 @@ namespace TeduShop.Data.Infrastructure
         public IEnumerable<T> GetAll(string[] includes = null)
         {
             //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE
-            if (includes != null && includes.Count() > 0)
+            if (includes != null && includes.Any())
             {
                 var query = dataContext.Set<T>().Include(includes.First());
-                foreach (var include in includes.Skip(1))
-                    query = query.Include(include);
+                query = includes.Skip(1).Aggregate(query, (current, include) => current.Include(include));
                 return query.AsQueryable();
             }
 

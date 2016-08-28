@@ -29,13 +29,13 @@ namespace TeduShop.Model.Models
         public decimal Price { get; set; }
         public decimal? PromotionPrice { get; set; }
         public int Warranty { get; set; }
-        public string Decription { get; set; }
+        public string Description { get; set; }
         public string Content { get; set; }
         public bool? HomeFlag { get; set; }
         public bool? HotFlag { get; set; }
         public int? ViewCount { get; set; }
 
         [ForeignKey("CategoryID")]
-        public virtual IEnumerable ProductCategory { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
     }
 }
