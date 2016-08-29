@@ -26,6 +26,8 @@ namespace TeduShop.Model.Models
 
         [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
+
+        [Required]
         public decimal Price { get; set; }
         public decimal? PromotionPrice { get; set; }
         public int Warranty { get; set; }

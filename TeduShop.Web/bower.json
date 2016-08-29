@@ -1,6 +1,6 @@
 {
-	"name": "ASP.NET",
-	"private": true,
+  "name": "ASP.NET",
+  "private": true,
   "dependencies": {
     "angular": "~1.5.5",
     "angular-ui-router": "~0.2.18",
@@ -13,5 +13,8 @@
     "jquery": "2.1.4",
     "ckeditor": "~4.5.10",
     "ng-ckeditor": "~0.2.1"
+  },
+  "resolutions": {
+    "angular": "^1.0.8"
   }
 }

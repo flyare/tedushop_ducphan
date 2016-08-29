@@ -83,6 +83,10 @@
     <Compile Include="Migrations\201608280349174_change-virtual-productcategory.Designer.cs">
       <DependentUpon>201608280349174_change-virtual-productcategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608290652445_change-required-product-price.cs" />
+    <Compile Include="Migrations\201608290652445_change-required-product-price.Designer.cs">
+      <DependentUpon>201608290652445_change-required-product-price.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608280349174_change-virtual-productcategory.resx">
       <DependentUpon>201608280349174_change-virtual-productcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608290652445_change-required-product-price.resx">
+      <DependentUpon>201608290652445_change-required-product-price.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

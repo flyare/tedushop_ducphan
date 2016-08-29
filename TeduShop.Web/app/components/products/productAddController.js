@@ -4,11 +4,11 @@
     productAddController.$inject = ["$scope", "apiService", "notificationService", "$state", "commonService", "$stateParams"];
 
     function productAddController($scope, apiService, notificationService, $state, commonService, $stateParams) {
-        $scope.productCategory = {
+        $scope.product = {
             CreatedDate: new Date(),
             Status: true,
-            Name: "Danh muc 1",
-            Alias: "Danh-muc-1"
+            Name: "",
+            Alias: ""
         };
 
         $scope.editorOptions = {
@@ -21,13 +21,13 @@
         $scope.getSeoTitle = getSeoTitle;
 
         function getSeoTitle() {
-            $scope.productCategory.Alias = commonService.getSeoTitle($scope.productCategory.Name);
+            $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
         }
 
         function addProduct() {
-            apiService.post("/api/productcategory/create/", $scope.productCategory, function (result) {
+            apiService.post("/api/product/create", $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + " đã được thêm mới.");
-                $state.go("product_categories");
+                $state.go("products");
             }, function (error) {
                 console.log(error);
                 notificationService.displayError("Thêm mới không thành công.");
@@ -45,7 +45,7 @@
         function loadProductCategoryDetail() {
             if ($stateParams.id) {
                 apiService.get("/api/productcategory/getbyid/" + $stateParams.id, null, function (result) {
-                    $scope.productCategory = result.data;
+                    $scope.product = result.data;
                 }, function (error) {
                     console.log(error);
                     notificationService.displayError(error);

@@ -42,7 +42,7 @@ namespace TeduShop.Service
 
         public Product Add(Product entity)
         {
-            throw new NotImplementedException();
+            return _productRepository.Add(entity);
         }
 
         public Product Update(Product entity)

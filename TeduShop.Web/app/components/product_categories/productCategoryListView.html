@@ -41,44 +41,44 @@
                     <button class="btn btn-success" ui-sref="add_product_category" type="button">Thêm mới</button>
                     <button class="btn btn-danger" type="button" ng-disabled="delDisable" ng-click="deleteMultiple()">Xóa</button>
                 </div>
-                <br /><br />
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="table table-bordered table-responsive">
-                            <thead>
-                                <tr>
-                                    <th style="width: 5%"><input name="all" type="checkbox" ng-checked="isAll" ng-click="checkAll()" /></th>
-                                    <th style="width: 5%">ID</th>
-                                    <th style="width: 50%">Tên danh mục</th>
-                                    <th style="width: 20%">Ngày tạo</th>
-                                    <th style="width: 10%">Trạng thái</th>
-                                    <th style="width: 10%">Thao tác</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="item in productCategories">
-                                    <td><input name="all" ng-model="item.checked" type="checkbox" /></td>
-                                    <td>{{item.ID}}</td>
-                                    <td>{{item.Name}}</td>
-                                    <td>
-                                        {{item.CreatedDate | date: "dd/MM/yyyy hh:mm:ss"}}
-                                    </td>
-                                    <!-- badge bg-red -->
-                                    <td><span ng-class="{'badge bg-red': item.Status == false, 'badge bg-green': item.Status == true}">{{item.Status | statusFilter}}</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-danger" ui-sref="clone_product_category({id:item.ID})" title="Sao chép"><i class="fa fa-clone" aria-hidden="true"></i></button>
-                                        <button class="btn btn-sm btn-primary" ui-sref="edit_product_category({id:item.ID})" title="Sửa chữa"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                        <button class="btn btn-sm btn-danger" ng-click="deleteProductCategory(item.ID)" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="6"><span class="pull-right">Trang: {{page + 1}} Tổng số bản ghi: {{totalCount}}</span></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+                <br/><br/>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%"><input name="all" type="checkbox" ng-checked="isAll" ng-click="checkAll()" /></th>
+                                <th style="width: 5%">ID</th>
+                                <th style="width: 50%">Tên danh mục</th>
+                                <th style="width: 20%">Ngày tạo</th>
+                                <th style="width: 10%">Trạng thái</th>
+                                <th style="width: 10%">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in productCategories">
+                                <td><input name="all" ng-model="item.checked" type="checkbox" /></td>
+                                <td>{{item.ID}}</td>
+                                <td>{{item.Name}}</td>
+                                <td>
+                                    {{item.CreatedDate | date: "dd/MM/yyyy hh:mm:ss"}}
+                                </td>
+                                <!-- badge bg-red -->
+                                <td><span ng-class="{'badge bg-red': item.Status == false, 'badge bg-green': item.Status == true}">{{item.Status | statusFilter}}</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-danger" ui-sref="clone_product_category({id:item.ID})" title="Sao chép"><i class="fa fa-clone" aria-hidden="true"></i></button>
+                                    <button class="btn btn-sm btn-primary" ui-sref="edit_product_category({id:item.ID})" title="Sửa chữa"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button class="btn btn-sm btn-danger" ng-click="deleteProductCategory(item.ID)" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6"><span class="pull-right">Trang: {{page + 1}} Tổng số bản ghi: {{totalCount}}</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
             <!-- /.box-body -->
