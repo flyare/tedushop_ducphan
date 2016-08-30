@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
 using System.Web.Http;
 using AutoMapper;
 using TeduShop.Model.Models;
@@ -11,41 +10,29 @@ using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
 using TeduShop.Web.Infrastructure.Extensions;
 using TeduShop.Web.Models;
-using WebGrease.Css.Extensions;
 
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/product")]
     public class ProductController : ApiControllerBase
     {
-        #region Initialize
-
-        private readonly IProductService _productService;
-
-        public ProductController(IErrorService errorService, IProductService productService) : base(errorService)
-        {
-            _productService = productService;
-        }
-        #endregion
-
         [Route("getall")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
-            Thread.Sleep(5000);
             return CreateHttpResponse(request, () =>
             {
                 var model = _productService.GetAll(keyword);
                 var total = model.Count();
-                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
-                
+                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page*pageSize).Take(pageSize);
+
                 var responseData = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(query);
                 var paginationSet = new PaginationSet<ProductViewModel>
                 {
                     Items = responseData,
                     Page = page,
                     TotalCount = total,
-                    TotalPages = (int)Math.Ceiling((decimal)total / pageSize)
+                    TotalPages = (int) Math.Ceiling((decimal) total/pageSize)
                 };
                 return request.CreateResponse(HttpStatusCode.OK, paginationSet);
             });
@@ -150,5 +137,16 @@ namespace TeduShop.Web.Api
                 return response;
             });
         }
+
+        #region Initialize
+
+        private readonly IProductService _productService;
+
+        public ProductController(IErrorService errorService, IProductService productService) : base(errorService)
+        {
+            _productService = productService;
+        }
+
+        #endregion
     }
 }
