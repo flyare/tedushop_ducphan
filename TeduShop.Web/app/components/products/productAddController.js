@@ -42,9 +42,9 @@
             });
         }
 
-        function loadProductCategoryDetail() {
+        function loadProductDetail() {
             if ($stateParams.id) {
-                apiService.get("/api/productcategory/getbyid/" + $stateParams.id, null, function (result) {
+                apiService.get("/api/product/getbyid/" + $stateParams.id, null, function (result) {
                     $scope.product = result.data;
                 }, function (error) {
                     console.log(error);
@@ -54,6 +54,6 @@
         }
 
         loadProductCategory();
-        loadProductCategoryDetail();
+        loadProductDetail();
     }
 })(angular.module("tedushop.products"));

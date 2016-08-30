@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller("productListController", productListController);
 
-    productListController.$inject = ["$scope", "apiService", "notificationService", "$ngBootbox", "$filter"];
+    productListController.$inject = ["$scope", "apiService", "notificationService", "$ngBootbox", "$filter", "$timeout"];
 
-    function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
+    function productListController($scope, apiService, notificationService, $ngBootbox, $filter, $timeout) {
         $scope.products = [];
 
         $scope.page = 0;
@@ -17,6 +17,10 @@
         $scope.isAll = false;
 
         $scope.search = search;
+
+        $scope.searchInput = function () {
+            //search();
+        }
 
         $scope.getProducts = getProducts;
 
@@ -32,7 +36,7 @@
                 $.each($scope.selected, function (i, item) {
                     listId.push(item.ID);
                 });
-                console.log(listId.toString());
+                
                 var config = {
                     params: {
                         checkedProducts: listId.toString()
@@ -119,8 +123,7 @@
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
                 $scope.isAll = false;
-
-                console.log(result.data.Items);
+                
             }, function () {
                 console.log("Load products failed");
             });

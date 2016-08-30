@@ -14,7 +14,7 @@ namespace TeduShop.Service
     {
         Product Add(Product entity);
 
-        Product Update(Product entity);
+        void Update(Product entity);
 
         Product Delete(int id);
 
@@ -45,9 +45,9 @@ namespace TeduShop.Service
             return _productRepository.Add(entity);
         }
 
-        public Product Update(Product entity)
+        public void Update(Product entity)
         {
-            throw new NotImplementedException();
+            _productRepository.Update(entity);
         }
 
         public Product Delete(int id)
@@ -68,17 +68,27 @@ namespace TeduShop.Service
 
         public IEnumerable<Product> GetAll(string keyword)
         {
+            IEnumerable<Product> lst = null;
+
             if (!string.IsNullOrEmpty(keyword))
             {
-                return _productRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+                lst = _productRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+                foreach (var product in lst)
+                {
+                    product.ProductCategory = _productCategoryService.GetById(product.CategoryID);
+                }
+            }
+            else
+            {
+                lst = GetAll();
             }
 
-            return GetAll();
+            return lst;
         }
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetSingleById(id);
         }
 
         public void Save()

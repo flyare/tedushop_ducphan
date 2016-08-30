@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 using AutoMapper;
 using TeduShop.Model.Models;
@@ -31,6 +32,7 @@ namespace TeduShop.Web.Api
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
+            Thread.Sleep(5000);
             return CreateHttpResponse(request, () =>
             {
                 var model = _productService.GetAll(keyword);
