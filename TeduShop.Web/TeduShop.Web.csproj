@@ -247,6 +247,13 @@
     <Content Include="app\app.js" />
     <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
+    <Content Include="app\components\post_categories\postCategory.module.js" />
+    <Content Include="app\components\post_categories\postCategoryAddController.js" />
+    <Content Include="app\components\post_categories\postCategoryAddView.html" />
+    <Content Include="app\components\post_categories\postCategoryEditController.js" />
+    <Content Include="app\components\post_categories\postCategoryEditView.html" />
+    <Content Include="app\components\post_categories\postCategoryListController.js" />
+    <Content Include="app\components\post_categories\postCategoryListView.html" />
     <Content Include="app\components\products\product.module.js" />
     <Content Include="app\components\products\productAddController.js" />
     <Content Include="app\components\products\productAddView.html" />
@@ -347,6 +354,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\components\orders\" />
+    <Folder Include="app\components\posts\" />
     <Folder Include="app\components\roles\" />
     <Folder Include="app\components\users\" />
     <Folder Include="app\shared\footer\" />

@@ -46,7 +46,7 @@ namespace TeduShop.Service
 
         public Product Delete(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.Delete(id);
         }
 
         public IEnumerable<Product> GetAll()
