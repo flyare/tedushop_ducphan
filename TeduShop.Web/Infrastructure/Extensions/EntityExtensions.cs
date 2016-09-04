@@ -82,6 +82,7 @@ namespace TeduShop.Web.Infrastructure.Extensions
             product.CategoryID = productVm.CategoryID;
             product.MoreImages = productVm.MoreImages;
             product.HomeFlag = productVm.HomeFlag;
+            product.HotFlag = productVm.HotFlag;
             product.ProductCategory = productVm.ProductCategory;
 
             product.CreatedDate = productVm.CreatedDate;

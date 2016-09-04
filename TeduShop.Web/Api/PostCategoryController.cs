@@ -1,6 +1,10 @@
-﻿using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
@@ -94,15 +98,24 @@ namespace TeduShop.Web.Api
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listCategory = _postCategoryService.GetAll();
+                var model = _postCategoryService.GetAll(keyword);
+                var total = model.Count();
+                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
 
-                var response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-
-                return response;
+                var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(query);
+                var paginationSet = new PaginationSet<PostCategoryViewModel>
+                {
+                    Items = responseData,
+                    Page = page,
+                    TotalCount = total,
+                    TotalPages = (int)Math.Ceiling((decimal)total / pageSize)
+                };
+                return request.CreateResponse(HttpStatusCode.OK, paginationSet);
             });
         }
     }

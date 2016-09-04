@@ -20,7 +20,7 @@
 
         $scope.getProductCagories = getProductCagories;
 
-        $scope.deleteProductCategory = deleteProductCategory;
+        $scope.deletePortCategory = deleteProductCategory;
 
         $scope.deleteMultiple = deleteMultiple;
 

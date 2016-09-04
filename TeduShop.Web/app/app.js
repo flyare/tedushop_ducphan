@@ -3,6 +3,7 @@
 (function () {
     angular.module("tedushop",
         [
+            "tedushop.post_categories",
             "tedushop.products",
             "tedushop.product_categories",
             "tedushop.common"

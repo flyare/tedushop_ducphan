@@ -15,7 +15,7 @@ namespace TeduShop.Service
 
         PostCategory Delete(int id);
 
-        IEnumerable<PostCategory> GetAll();
+        IEnumerable<PostCategory> GetAll(string keyword);
 
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
 
@@ -50,8 +50,12 @@ namespace TeduShop.Service
             return _postCategoryRepository.Delete(id);
         }
 
-        public IEnumerable<PostCategory> GetAll()
+        public IEnumerable<PostCategory> GetAll(string keyword)
         {
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                return _postCategoryRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+            }
             return _postCategoryRepository.GetAll();
         }
 
