@@ -998,7 +998,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\admin\js\pages\" />
     <Folder Include="Assets\client\" />
-    <Folder Include="UpdatedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
