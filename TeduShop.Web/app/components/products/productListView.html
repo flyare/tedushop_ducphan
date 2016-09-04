@@ -55,6 +55,7 @@
                                 <th><input name="all" type="checkbox" ng-checked="isAll" ng-click="checkAll()" /></th>
                                 <th>#</th>
                                 <th style="width: 40%">Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
                                 <th>Danh mục</th>
                                 <th>Ngày tạo</th>
                                 <th>Trạng thái</th>
@@ -66,6 +67,7 @@
                                 <td><input name="all" ng-model="item.checked" type="checkbox" /></td>
                                 <td>{{item.ID}}</td>
                                 <td>{{item.Name}}</td>
+                                <td><img src="" class="img-thumbnail"/></td>
                                 <td>{{item.ProductCategory.Name}}</td>
                                 <td>
                                     {{item.CreatedDate | date: "dd/MM/yyyy hh:mm:ss"}}
@@ -81,7 +83,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="7"><span class="pull-right">Trang: {{page + 1}} Tổng số bản ghi: {{totalCount}}</span></td>
+                                <td colspan="8"><span class="pull-right">Trang: {{page + 1}} Tổng số bản ghi: {{totalCount}}</span></td>
                             </tr>
                         </tfoot>
                     </table>
